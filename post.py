@@ -14,5 +14,5 @@ with open('YOURJSONFILE.json') as jsonfile:
 	json_obj = json.loads(line)
         uri_print = json_obj['uri']
 	json_string = json.dumps(json_obj)
-	resources = requests.post(baseURL + uri_print, headers=headers, data=json_string).json()
-	print digital_objects
+	pushit = requests.post(baseURL + uri_print, headers=headers, data=json_string).json()
+	print pushit
