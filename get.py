@@ -13,4 +13,4 @@ endpoint = '/repositories/3/accessions'
 arguments = '?page=1&page_size=3000'
 
 output = requests.get(baseURL + endpoint + arguments, headers=headers).json()
-print(json.dumps(output, indent=2))
+print(json.dumps(output.get('results'), indent=2))
