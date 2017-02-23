@@ -16,6 +16,7 @@ logging.getLogger("requests").setLevel(logging.WARNING)
 config = {'repository':config.get('ArchivesSpace', 'repository'), 'user': config.get('ArchivesSpace', 'user'), 'password': config.get('ArchivesSpace', 'password'), 'baseURL': config.get('ArchivesSpace', 'baseURL')}
 
 def compile_data(data):
+	writer.writerow(["levelOfDescription", "title", "dates", "date_expression", "instance_type_1", "instance_indicator_1", "instance_type_2", "instance_indicator_2]", "instance_barcode", "id"])
 	for child in data["children"]:
 		make_row(child)
 		if child["has_children"]:

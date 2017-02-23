@@ -50,3 +50,4 @@ secrets.py
 
 secrets.pyc
 *.cfg
+asCSV-aos-to-post.py
