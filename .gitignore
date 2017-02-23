@@ -49,3 +49,4 @@ Temporary Items
 secrets.py
 
 secrets.pyc
+*.cfg
