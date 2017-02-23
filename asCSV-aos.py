@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import os, requests, json, sys, logging, ConfigParser, urllib2, csv
-sys.path.append("C:\cygwin64\home\ldavi107\jhuagentarchives")
-from jhuagentarchives import archivesspace
+sys.path.append("C:\cygwin64\home\ldavi107\agentarchives")
+from agentarchives import archivesspace
 # from agentarchives import archivesspace
 
 config = ConfigParser.ConfigParser()
@@ -29,7 +29,7 @@ def make_row(component):
 resource_id = raw_input('Enter resource id: ')
 
 print 'Creating a csv'
-spreadsheet = 'allAOs.csv'
+spreadsheet = '{}_allAOs.csv'.format(resource_id)
 if os.path.exists(spreadsheet):
 	writer = csv.writer(open(spreadsheet, 'a'))
 else:
