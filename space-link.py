@@ -42,20 +42,23 @@ collectionTitle = requests.get(endpoint).json()
 endpoint = dspaceURL+'/rest/collections/'+str(collectionID)+'/items'
 output = requests.get(endpoint).json()
 
-itemList = []
 for i in range (0, len (output)):
-    name = output[i]['name']
-    itemID = output[i]['id']
-    itemList.append(itemID)
-    for itemID in itemList:
-        itemsList = {}
-        item = requests.get(dspaceURL + '/rest/items/' + str(itemID)).json()
-        bitstreams = requests.get(dspaceURL + '/rest/items/' + str(itemID) + '/bitstreams').json()
-        title = item['name']
-        # itemsList['filename'] = bitstreams[0]['name']
-        query = '/search?page=1&filter_term[]={"primary_type":"archival_object"}&filter_term[]={"resource":"/repositories/3/resources/1045"}&q="' + title + '"'
-        ASoutput = requests.get(baseURL + query, headers=headers).json()
-        print ASoutput
+	itemList = []
+	name = output[i]['name']
+	itemID = output[i]['id']
+	itemList.append(itemID)
+	print itemList
+	for j in itemList:
+		itemsList = {}
+		item = requests.get(dspaceURL + '/rest/items/' + str(itemID)).json()
+		# bitstreams = requests.get(dspaceURL + '/rest/items/' + str(itemID) + '/bitstreams').json()
+		title = item['name']
+		# itemsList['filename'] = bitstreams[0]['name']
+		query = '/search?page=1&filter_term[]={"primary_type":"archival_object"}&filter_term[]={"resource":"/repositories/3/resources/1045"}&q="' + title + '"'
+		ASoutput = requests.get(baseURL + query, headers=headers).json()
+		for ao in ASoutput['results']:
+			asURI = ao['id']
+			print itemID, asURI
 
 elapsedTime = time.time() - startTime
 m, s = divmod(elapsedTime, 60)
