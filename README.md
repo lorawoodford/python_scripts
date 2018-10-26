@@ -30,3 +30,12 @@ Post contents of a jsonfile.
 
 ## suppressSelectEnumerations.py
 Suppress enumeration values as identified in an external json file.
+
+## urlLinker.py
+Updates/adds a web-accessible url to the first file version of a digital object already in ArchivesSpace.  Assumes the user has a 2-column csv like this:
+
+| file                            | url                                      |
+| ------------------------------- |:----------------------------------------:|
+| existing digital_object title 1 | URL to add/replace in first file version |
+| existing digital_object title 2 | URL to add/replace in first file version |
+| existing digital_object title 3 | URL to add/replace in first file version |
